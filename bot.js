@@ -28,7 +28,11 @@ if (!process.env.PORT) {
 var Botkit = require('botkit');
 var debug = require('debug')('botkit:main');
 
+
+// teamsDevBot // remember to get this out of here
 var bot_options = {
+    client_id: process.env.client_id || 'c9e340f8-cd73-4a5f-9b72-c95d0db12a28',
+    client_secret: process.env.client_secret || 'yEL92vtxUtFdBgbpizmoP7o',
     studio_token: process.env.studio_token,
     studio_command_uri: process.env.studio_command_uri,
 };
@@ -43,13 +47,12 @@ if (process.env.MONGO_URI) {
 }
 
 // Create the Botkit controller, which controls all instances of the bot.
-var controller = Botkit.socketbot(bot_options);
+var controller = Botkit.teamsbot(bot_options);
+
+
 
 // Set up an Express-powered webserver to expose oauth and webhook endpoints
 var webserver = require(__dirname + '/components/express_webserver.js')(controller);
-
-// Open the web socket server
-controller.openSocketServer(controller.httpserver);
 
 // Start the bot brain in motion!!
 controller.startTicking();
@@ -69,8 +72,8 @@ console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + process.env.PORT
 // You can tie into the execution of the script using the functions
 // controller.studio.before, controller.studio.after and controller.studio.validate
 if (process.env.studio_token) {
-    controller.on('message_received', function(bot, message) {
-        controller.studio.runTrigger(bot, message.text, message.user, message.channel).then(function(convo) {
+    controller.on('direct_message, direct_mention', function(bot, message) {
+        controller.studio.runTrigger(bot, message.text, message.user, message.channel, message).then(function(convo) {
             if (!convo) {
                 // no trigger was matched
                 // If you want your bot to respond to every message,
@@ -89,7 +92,7 @@ if (process.env.studio_token) {
     });
 } else {
 
-    controller.on('message_received', function(bot, message) {
+    controller.on('direct_message, direct_mention', function(bot, message) {
       bot.reply(message, 'I need an API token from Botkit Studio to do more stuff. Get one here: https://studio.botkit.ai')
     });
 

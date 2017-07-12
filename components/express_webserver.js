@@ -23,7 +23,7 @@ module.exports = function(controller) {
 
     server.listen(process.env.PORT || 3000, null, function() {
 
-        debug('Express webserver configured and listening at http://localhost:' + process.env.PORT || 3000);
+        console.log('Express webserver configured and listening at http://localhost:' + process.env.PORT || 3000);
 
     });
 
@@ -31,6 +31,7 @@ module.exports = function(controller) {
     var normalizedPath = require("path").join(__dirname, "routes");
     require("fs").readdirSync(normalizedPath).forEach(function(file) {
       require("./routes/" + file)(webserver, controller);
+      console.log(file);
     });
 
     controller.webserver = webserver;
