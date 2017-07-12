@@ -5,6 +5,11 @@ html,body {
     background: #666;
     color: #fff
 }
+
+.wrapper{
+  padding: 10px;
+}
+
 * {
     box-sizing: border-box;
 }

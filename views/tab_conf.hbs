@@ -1,0 +1,43 @@
+<h3>Configurable Tab</h3>
+<h1>Select A Map</h1>
+
+<form>
+  <input type="radio" name="maptype" value="bing" onclick="onClick()"> Bing Maps<br>
+  <input type="radio" name="maptype" value="google" onclick="onClick()"> Google Maps
+</form>
+
+<!-- example of using the embedded MicrosoftTeams js  -->
+<script type="text/javascript">
+
+microsoftTeams.initialize();
+microsoftTeams.settings.registerOnSaveHandler(function(saveEvent){
+
+    var radios = document.getElementsByName("maptype");
+    if (radios[0].checked) {
+      console.log('Bing Maps Selected');
+       microsoftTeams.settings.setSettings({
+         entityId: "bing",
+         contentUrl: "https://www.bing.com/maps/embed",
+         suggestedDisplayName: "Bing Map",
+         websiteUrl: "https://www.bing.com/maps",
+         removeUrl: "https://teams-get-started-sample.azurewebsites.net/tabremove.html",
+      });
+    } else {
+      console.log('Google Maps Selected');
+       microsoftTeams.settings.setSettings({
+         entityId: "google",
+         contentUrl: "https://www.google.com/maps/embed",
+         suggestedDisplayName: "Google Map",
+         websiteUrl: "https://www.google.com/maps",
+         removeUrl: "https://teams-get-started-sample.azurewebsites.net/tabremove.html",
+      });
+    }
+
+    saveEvent.notifySuccess();
+});
+
+function onClick() {
+    microsoftTeams.settings.setValidityState(true);
+}
+
+</script>
