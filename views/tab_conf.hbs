@@ -8,8 +8,26 @@
 
 <!-- example of using the embedded MicrosoftTeams js  -->
 <script type="text/javascript">
-
+// must initialize the teams js library
 microsoftTeams.initialize();
+console.log('hdfgvfhgvfhgv');
+
+// get cuurent context
+microsoftTeams.getContext(function(context){
+  // console doesnt work
+  console.log('context: ', context);
+});
+
+
+// deeplink
+// var entity = {
+//   subEntityId: subEntityId,
+//   subEntityLabel: subEntityLabel}
+// };
+// microsoftTeams.shareDeepLink(entity);
+
+
+// set a setting
 microsoftTeams.settings.registerOnSaveHandler(function(saveEvent){
 
     var radios = document.getElementsByName("maptype");
