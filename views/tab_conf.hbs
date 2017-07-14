@@ -16,6 +16,18 @@ console.log('hdfgvfhgvfhgv');
 microsoftTeams.getContext(function(context){
   // console doesnt work
   console.log('context: ', context);
+  // in theory a context looks like this:
+  // {
+  //   "teamId": "The team ID in the format 19:[id]@thread.skype",
+  //   "channelId": "The channel ID in the format 19:[id]@thread.skype",
+  //   "locale": "Lowercase lang-locale",
+  //   "theme": "default | dark | contrast",
+  //   "entityId": "The entity id you set up on your config page",
+  //   "subEntityId": "The sub entity id you set up on your config page",
+  //   "upn": "The user identifier in email format",
+  //   "tid": "Guid identifying the current Tenant ID",
+  //   "groupId": "Guid identifying the current O365 Group ID"
+  // }
 });
 
 
