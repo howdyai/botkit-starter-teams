@@ -1,7 +1,7 @@
 module.exports = function(controller){
   controller.on('composeExtension', function(bot, message){
-    console.log('-----------------------------------------------------------------');
-    console.log('composeExtension message:', message);
+    // console.log('-----------------------------------------------------------------');
+    // console.log('composeExtension message:', message);
     var card = {
       composeExtension:{
         type:"result",

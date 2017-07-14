@@ -12,6 +12,29 @@ module.exports = function(webserver, controller) {
   });
 
   // need to build these addresses for the manifest.json
+  webserver.get('/teams/index', function(req, res) {
+    console.log('configurable req.body', req.body);
+    // res.send('configurable tab');
+    res.render('index', {
+      layout: 'layouts/default'
+    });
+  });
+  webserver.get('/teams/privacy', function(req, res) {
+    console.log('configurable req.body', req.body);
+    // res.send('configurable tab');
+    res.render('privacy', {
+      layout: 'layouts/default'
+    });
+  });
+  webserver.get('/teams/termsofuse', function(req, res) {
+    console.log('configurable req.body', req.body);
+    // res.send('configurable tab');
+    res.render('termsofuse', {
+      layout: 'layouts/default'
+    });
+  });
+
+
   webserver.get('/teams/tabs/configurable', function(req, res) {
     console.log('configurable req.body', req.body);
     // res.send('configurable tab');
