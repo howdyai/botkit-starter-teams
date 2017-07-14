@@ -28,4 +28,10 @@ module.exports = function(webserver, controller) {
     });
   });
 
+  webserver.get('/teams/incomingWebHook', function(req, res) {
+    console.log('static req.body', req.body);
+    // res.send('static tab');
+    res.json({example: 'incoming webhook'});
+  });
+
 }
