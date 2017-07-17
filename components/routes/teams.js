@@ -69,7 +69,7 @@ module.exports = function(webserver, controller) {
   webserver.get('/teams/tabs/remove', function(req, res) {
     console.log('static req.body', req.body);
     // res.send('static tab');
-    res.render('tab_static', {
+    res.render('tab_remove', {
       layout: 'layouts/default'
     });
   });
