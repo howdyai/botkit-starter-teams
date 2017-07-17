@@ -34,6 +34,21 @@ module.exports = function(webserver, controller) {
     });
   });
 
+  webserver.get('/teams/tabs/auth', function(req, res) {
+    console.log('configurable req.body', req.body);
+    // res.send('configurable tab');
+    res.render('tab_conf', {
+      layout: 'layouts/default'
+    });
+  });
+
+  webserver.post('/teams/tabs/auth', function(req, res) {
+    console.log('configurable req.body', req.body);
+    // res.send('configurable tab');
+    res.render('tab_conf', {
+      layout: 'layouts/default'
+    });
+  });
 
   webserver.get('/teams/tabs/configurable', function(req, res) {
     console.log('configurable req.body', req.body);
@@ -44,6 +59,14 @@ module.exports = function(webserver, controller) {
   });
 
   webserver.get('/teams/tabs/static', function(req, res) {
+    console.log('static req.body', req.body);
+    // res.send('static tab');
+    res.render('tab_static', {
+      layout: 'layouts/default'
+    });
+  });
+
+  webserver.get('/teams/tabs/remove', function(req, res) {
     console.log('static req.body', req.body);
     // res.send('static tab');
     res.render('tab_static', {
