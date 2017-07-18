@@ -50,10 +50,18 @@ module.exports = function(webserver, controller) {
     });
   });
 
-  webserver.get('/teams/tabs/configurable', function(req, res) {
+  webserver.get('/teams/tabs/configure', function(req, res) {
     console.log('configurable req.body', req.body);
     // res.send('configurable tab');
     res.render('tab_conf', {
+      layout: 'layouts/default'
+    });
+  });
+
+  webserver.get('/teams/tabs/configurable', function(req, res) {
+    console.log('static req.body', req.body);
+    // res.send('static tab');
+    res.render('tab_static', {
       layout: 'layouts/default'
     });
   });
