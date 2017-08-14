@@ -14,7 +14,7 @@ module.exports = function(webserver, controller) {
 
   webserver.get('/', function(req, res) {
     // console.log('process.env: ', process.env);
-    res.render('sk_index', {
+    res.render('index', {
       bot_client_id: process.env.client_id,
       layout: 'layouts/default'
     });
@@ -28,13 +28,7 @@ module.exports = function(webserver, controller) {
       layout: 'layouts/default'
     });
   });
-  webserver.get('/teams/privacy', function(req, res) {
-    console.log('configurable req.body', req.body);
-    // res.send('configurable tab');
-    res.render('privacy', {
-      layout: 'layouts/default'
-    });
-  });
+
   webserver.get('/teams/termsofuse', function(req, res) {
     console.log('configurable req.body', req.body);
     // res.send('configurable tab');
