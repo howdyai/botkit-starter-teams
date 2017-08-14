@@ -65,6 +65,12 @@ require("fs").readdirSync(normalizedPath).forEach(function(file) {
 
 console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + process.env.PORT)
 
+controller.middleware.receive.use(function(bot, message, next){
+  console.log('message.type: ', message.type);
+  next();
+});
+
+
 // This captures and evaluates any message sent to the bot as a DM
 // or sent to the bot in the form "@bot message" and passes it to
 // Botkit Studio to evaluate for trigger words and patterns.
@@ -72,7 +78,7 @@ console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + process.env.PORT
 // You can tie into the execution of the script using the functions
 // controller.studio.before, controller.studio.after and controller.studio.validate
 if (process.env.studio_token) {
-    controller.on('direct_message, direct_mention', function(bot, message) {
+    controller.on('direct_message,direct_mention', function(bot, message) {
         controller.studio.runTrigger(bot, message.text, message.user, message.channel, message).then(function(convo) {
             if (!convo) {
                 // no trigger was matched

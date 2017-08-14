@@ -12,10 +12,56 @@ module.exports = function(webserver, controller) {
   });
 
   // need to build these addresses for the manifest.json
-  webserver.get('/teams/tabs/configurable', function(req, res) {
+  webserver.get('/teams/index', function(req, res) {
+    console.log('configurable req.body', req.body);
+    // res.send('configurable tab');
+    res.render('index', {
+      layout: 'layouts/default'
+    });
+  });
+  webserver.get('/teams/privacy', function(req, res) {
+    console.log('configurable req.body', req.body);
+    // res.send('configurable tab');
+    res.render('privacy', {
+      layout: 'layouts/default'
+    });
+  });
+  webserver.get('/teams/termsofuse', function(req, res) {
+    console.log('configurable req.body', req.body);
+    // res.send('configurable tab');
+    res.render('termsofuse', {
+      layout: 'layouts/default'
+    });
+  });
+
+  webserver.get('/teams/tabs/auth', function(req, res) {
     console.log('configurable req.body', req.body);
     // res.send('configurable tab');
     res.render('tab_conf', {
+      layout: 'layouts/default'
+    });
+  });
+
+  webserver.post('/teams/tabs/auth', function(req, res) {
+    console.log('configurable req.body', req.body);
+    // res.send('configurable tab');
+    res.render('tab_conf', {
+      layout: 'layouts/default'
+    });
+  });
+
+  webserver.get('/teams/tabs/configure', function(req, res) {
+    console.log('configurable req.body', req.body);
+    // res.send('configurable tab');
+    res.render('tab_conf', {
+      layout: 'layouts/default'
+    });
+  });
+
+  webserver.get('/teams/tabs/configurable', function(req, res) {
+    console.log('static req.body', req.body);
+    // res.send('static tab');
+    res.render('tab_static', {
       layout: 'layouts/default'
     });
   });
@@ -26,6 +72,20 @@ module.exports = function(webserver, controller) {
     res.render('tab_static', {
       layout: 'layouts/default'
     });
+  });
+
+  webserver.get('/teams/tabs/remove', function(req, res) {
+    console.log('static req.body', req.body);
+    // res.send('static tab');
+    res.render('tab_remove', {
+      layout: 'layouts/default'
+    });
+  });
+
+  webserver.get('/teams/incomingWebHook', function(req, res) {
+    console.log('static req.body', req.body);
+    // res.send('static tab');
+    res.json({example: 'incoming webhook'});
   });
 
 }

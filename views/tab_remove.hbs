@@ -1,0 +1,23 @@
+<h3>Configure Tab</h3>
+<h1>Remove This Tab</h1>
+
+<button onclick="onClick()">Confirm Removing This Tab</button>
+
+<!-- <button onclick="login()">Log In</button> -->
+<!-- example of using the embedded MicrosoftTeams js  -->
+<script type="text/javascript">
+// must initialize the teams js library
+microsoftTeams.initialize();
+
+
+microsoftTeams.settings.registerOnRemoveHandler(function(removeEvent){
+  console.log('removeEvent: ', removeEvent);
+  removeEvent.notifySuccess();
+});
+
+function onClick() {
+    microsoftTeams.settings.setValidityState(true);
+}
+
+
+</script>

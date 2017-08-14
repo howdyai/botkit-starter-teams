@@ -1,0 +1,106 @@
+{
+  "$schema": "https://statics.teams.microsoft.com/sdk/v1.0/manifest/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.0",
+  "version": "1.0.0",
+  "id": "c9e340f8-cd73-4a5f-9b72-c95d0db12a28",
+  "packageName": "com.example.myapp",
+  "developer": {
+    "name": "Publisher Name",
+    "websiteUrl": "https://24ae4157.ngrok.io/teams/index/",
+    "privacyUrl": "https://24ae4157.ngrok.io/teams/privacy",
+    "termsOfUseUrl": "https://24ae4157.ngrok.io/teams/termsofuse"
+  },
+  "name": {
+    "short": "testdevbot",
+    "full": "testdevbot"
+  },
+  "description": {
+    "short": "Short description of your app",
+    "full": "Full description of your app"
+  },
+  "icons": {
+    "outline": "contoso20x20.png",
+    "color": "contoso96x96.png"
+  },
+  "accentColor": "#666666",
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://24ae4157.ngrok.io/teams/tabs/configure",
+      "canUpdateConfiguration": true,
+      "scopes": [ "team" ]
+    }
+  ],
+  "staticTabs": [
+    {
+      "entityId": "blerg",
+      "name": "Display name of tab",
+      "contentUrl": "https://24ae4157.ngrok.io/teams/tabs/static",
+      "websiteUrl": "https://24ae4157.ngrok.io/teams/index",
+      "scopes": [ "personal" ]
+    }
+  ],
+  "bots": [
+    {
+      "botId": "c9e340f8-cd73-4a5f-9b72-c95d0db12a28",
+      "needsChannelSelector": "true",
+      "isNotificationOnly": "false",
+      "scopes": [ "team", "personal" ],
+      "commandLists": [
+        {
+          "scopes": ["team"],
+          "commands": [
+            {
+              "title": "Command 1",
+              "description": "Description of Command 1"
+            },
+            {
+              "title": "Command N",
+              "description": "Description of Command N"
+            }
+          ]
+        },
+        {
+          "scopes": ["personal"],
+          "commands": [
+            {
+              "title": "Personal command 1",
+              "description": "Description of Personal command 1"
+            },
+            {
+              "title": "Personal command N",
+              "description": "Description of Personal command N"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "composeExtensions": [
+    {
+      "botId": "c9e340f8-cd73-4a5f-9b72-c95d0db12a28",
+      "scopes": ["team", "personal"],
+      "commands": [
+        {
+          "id": "exampleCmd",
+          "title": "Example Command",
+          "description": "Comamand Description e.g. Search on the web",
+          "initialRun": true,
+          "parameters": [
+            {
+              "name": "keyword",
+              "title": "Search keywords",
+              "description": "Enter the keywords to search for"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+     "*.ngrok.io"
+  ]
+}
