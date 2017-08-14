@@ -1,3 +1,4 @@
+
 module.exports = function(webserver, controller) {
 
   webserver.post('/teams/receive', function(req, res) {
@@ -9,6 +10,14 @@ module.exports = function(webserver, controller) {
     bot.serviceUrl = message.serviceUrl;
     controller.ingest(bot, message, res);
 
+  });
+
+  webserver.get('/', function(req, res) {
+    // console.log('process.env: ', process.env);
+    res.render('sk_index', {
+      bot_client_id: process.env.client_id,
+      layout: 'layouts/default'
+    });
   });
 
   // need to build these addresses for the manifest.json
