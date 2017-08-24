@@ -1,0 +1,9 @@
+<div ng-controller="notesController">
+<h1>CONFIRM YOUR IDENTITY</h1>
+<form method="post" action="/teams/tabs/auth">
+  <input type="hidden" name="src" id="src" value="{{src_url}}"></input>
+<p>Is this your UPN?</p>
+<p><input name="upn" id="upn" size="40" ng-value="context.upn"></input></p>
+<p><button type="submit">Verify</button></p>
+</form>
+</div>

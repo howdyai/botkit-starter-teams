@@ -1,89 +1,30 @@
-<h3>Configurable Tab</h3>
-<h1>Select A Map</h1>
 
-<form>
-  <input type="radio" name="maptype" value="bing" onclick="onClick()"> Bing Maps<br>
-  <input type="radio" name="maptype" value="google" onclick="onClick()"> Google Maps
-</form>
+<h3>Configure Tab</h3>
 
-<!-- <button onclick="login()">Log In</button> -->
-<!-- example of using the embedded MicrosoftTeams js  -->
+
+<button onclick="onClick()">Install Tab</button>
 <script type="text/javascript">
 // must initialize the teams js library
 microsoftTeams.initialize();
 
-function login(){
-  microsoftTeams.getContext(function(context){
-    // console doesnt work
-    console.log('context: ', context);
-    microsoftTeams.authentication.authenticate({
-      url: 'https://24ae4157.ngrok.io/teams/tabs/auth',
-      width: 200,
-      height: 200,
-      successCallback: function(){},
-      failureCallback: function(){}
-    })
-  });
-
-}
-
-
-
-
-// deeplink
-// var entity = {
-//   subEntityId: subEntityId,
-//   subEntityLabel: subEntityLabel}
-// };
-// microsoftTeams.shareDeepLink(entity);
-
 
 // set a setting
 microsoftTeams.settings.registerOnSaveHandler(function(saveEvent){
-
-    var radios = document.getElementsByName("maptype");
-    if (radios[0].checked) {
-      console.log('Bing Maps Selected');
-       microsoftTeams.settings.setSettings({
-         entityId: "blerg",
-         contentUrl: "https://24ae4157.ngrok.io/teams/tabs/configurable",
-         suggestedDisplayName: "testdevbot static tab",
-         websiteUrl: "https://24ae4157.ngrok.io/teams/index",
-         removeUrl: "https://24ae4157.ngrok.io/teams/tabs/remove",
+      microsoftTeams.getContext(function(context){
+         microsoftTeams.settings.setSettings({
+           entityId: "blerg",
+           contentUrl: "https://teams-bot-test.glitch.me/teams/tabs/notesByChannel/" + context.channelId,
+           suggestedDisplayName: "My Botkit Tab",
+           websiteUrl: "https://teams-bot-test.glitch.me",
+           removeUrl: "https://teams-bot-test.glitch.me/teams/tabs/remove",
+        });
+        saveEvent.notifySuccess();
       });
-    } else {
-      console.log('Google Maps Selected');
-       microsoftTeams.settings.setSettings({
-         entityId: "testdevbot",
-         contentUrl: "https://24ae4157.ngrok.io/teams/tabs/configurable",
-         suggestedDisplayName: "testdevbot static tab 2",
-         websiteUrl: "https://24ae4157.ngrok.io/teams/index",
-         removeUrl: "https://24ae4157.ngrok.io/teams/tabs/remove",
-      });
-    }
-
-    saveEvent.notifySuccess();
 });
 
 function onClick() {
     microsoftTeams.settings.setValidityState(true);
-    microsoftTeams.getContext(function(context){
-      // console doesnt work
-      console.log('context: ', context);
-      // in actually what a context looks like this:
-      // {
-      //   teamId: "19:8209587b45eb4976afdfe4bf46e9f6ca…",
-      //   channelId: "19:8209587b45eb4976afdfe4bf46e9f6ca…",
-      //   locale: "en-us",
-      //   theme: "dark",
-      //   entityId: "",
-      //   subEntityId: "",
-      //   upn: "clint@howdyaitest.onmicrosoft.com",
-      //   tid: "4b519ff6-bddf-4952-8ca6-f773a4ed7ea5",
-      //   groupId: "36655630-2d30-4131-b5b8-52be27ac2029",
-      //   isFullScreen: false
-      // }
-    });
 }
+
 
 </script>

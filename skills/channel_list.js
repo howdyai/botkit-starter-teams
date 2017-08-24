@@ -4,7 +4,7 @@ module.exports = function(controller) {
     
   controller.hears('channels','direct_mention', function(bot, message) {
    
-    bot.api.getChannels(message.original_message.serviceUrl,message.original_message.channelData.team.id, function(err, roster) {
+    bot.api.getChannels(message.original_message.channelData.team.id, function(err, roster) {
       if (err) {
         bot.reply(message,'Error loading channel list: ' + err);
       } else {

@@ -1,9 +1,23 @@
-<h3>Configurable Tab</h3>
-<h1>Map View</h1>
+<script>
+  var notes_url = '/teams/tabs/api/notesByChannel/{{channel_id}}';
+</script>
 
-<p>embed a map view here</p>
+<h3>Channel Notes</h3>
 
+<div ng-controller="notesController">
+  
+  <div ng-if="!notes || !notes.length">
+    <p>No notes have been added in this channel.</p>
+    <p>To add a note, say @bot add note</p>
+  </div>
+  
+  <div class="ng-class: {highlighted: note.id==highlighted_item}; note" ng-repeat="note in notes track by $index">
+    <div class="note_text" ng-bind-html="note.html"></div>
+    <footer>
+      added by {% note.author %} on {% note.time | date: 'short' %} | <a href="#" ng-click="share(note.id);">Share</a>
+    </footer>
+  </div>
+</div>
 <!-- example of using the embedded MicrosoftTeams js  -->
 <script type="text/javascript">
-  microsoftTeams.initialize();
 </script>
