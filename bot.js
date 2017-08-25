@@ -54,6 +54,9 @@ var controller = Botkit.teamsbot(bot_options);
 // Set up an Express-powered webserver to expose oauth and webhook endpoints
 var webserver = require(__dirname + '/components/express_webserver.js')(controller);
 
+// Load in some helpers that make running Botkit on Glitch.com better
+require(__dirname + '/components/plugin_glitch.js')(controller);
+
 // Start the bot brain in motion!!
 controller.startTicking();
 

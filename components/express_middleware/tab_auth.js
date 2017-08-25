@@ -1,6 +1,5 @@
 module.exports = function(webserver, controller) {
-  
-  
+
       controller.validateUser = function(req, res, next){
           if(req.cookies.user_session){
             var upn = req.cookies.user_session.id;
