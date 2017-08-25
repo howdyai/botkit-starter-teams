@@ -3,7 +3,7 @@ module.exports = function(webserver, controller) {
   webserver.get('/teams/tabs/auth', function(req, res) {
     res.render('tab_auth', {
       src_url: req.query.src,
-      layout: 'layouts/default'
+      layout: 'layouts/tabs'
     });
   });
 
@@ -32,13 +32,13 @@ module.exports = function(webserver, controller) {
                 token: expires,
                 src: req.body.src,
                 success: true,
-                layout: 'layouts/default'
+                layout: 'layouts/tabs'
               });
             } else {
               res.render('tab_auth_resolve', {
                 success: false,
                 src: req.body.src,
-                layout: 'layouts/default'
+                layout: 'layouts/tabs'
               });
             }
           });
@@ -53,7 +53,7 @@ module.exports = function(webserver, controller) {
             token: expires,
             src: req.body.src,
             success: true,
-            layout: 'layouts/default'
+            layout: 'layouts/tabs'
           });
         }
       });
@@ -62,7 +62,7 @@ module.exports = function(webserver, controller) {
       res.render('tab_auth_resolve', {
         src: req.body.src,
         success: false,
-        layout: 'layouts/default'
+        layout: 'layouts/tabs'
       });
     }
   });
@@ -70,14 +70,14 @@ module.exports = function(webserver, controller) {
 
   webserver.get('/teams/tabs/configure', controller.validateUser, function(req, res) {
     res.render('tab_conf', {
-      layout: 'layouts/default'
+      layout: 'layouts/tabs'
     });
   });
 
   webserver.get('/teams/tabs/notesByChannel/:channel', controller.validateUser, function(req, res) {
     res.render('tab_configurable', {
       channel_id: req.params.channel,
-      layout: 'layouts/default',
+      layout: 'layouts/tabs',
     });
   });
 
@@ -119,13 +119,13 @@ module.exports = function(webserver, controller) {
   webserver.get('/teams/tabs/static', controller.validateUser, function(req, res) {
 
     res.render('tab_static', {
-      layout: 'layouts/default',
+      layout: 'layouts/tabs',
     });
   });
 
   webserver.get('/teams/tabs/remove', controller.validateUser, function(req, res) {
     res.render('tab_remove', {
-      layout: 'layouts/default'
+      layout: 'layouts/tabs'
     });
   });
 
