@@ -12,11 +12,11 @@ microsoftTeams.initialize();
 microsoftTeams.settings.registerOnSaveHandler(function(saveEvent){
       microsoftTeams.getContext(function(context){
          microsoftTeams.settings.setSettings({
-           entityId: "blerg",
-           contentUrl: "https://teams-bot-test.glitch.me/teams/tabs/notesByChannel/" + context.channelId,
+           entityId: "notes_by_channel",
+           contentUrl: "{{botkit_host}}/teams/tabs/notesByChannel/" + context.channelId,
            suggestedDisplayName: "My Botkit Tab",
-           websiteUrl: "https://teams-bot-test.glitch.me",
-           removeUrl: "https://teams-bot-test.glitch.me/teams/tabs/remove",
+           websiteUrl: "{{botkit_host}}",
+           removeUrl: "{{botkit_host}}/teams/tabs/remove",
         });
         saveEvent.notifySuccess();
       });

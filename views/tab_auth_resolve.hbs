@@ -1,20 +1,27 @@
-<div>
-  <h1 id="heading">Success</h1>
-  <p id="subheading">You are now authorized to use this App.</p>
-  <p>Click <a href="{{src}}">Here</a> to Continue</p>
-</div>
+{{#success}}
 
-<script type="text/javascript">
-// Initialize microsoft teams tab library
-microsoftTeams.initialize();
+  <div>
+    <h1 id="heading">Success</h1>
+    <p id="subheading">You are now authorized to use this App.</p>
+    <p>Click <a href="{{src}}">Here</a> to Continue</p>
+  </div>
 
+  <script type="text/javascript">
+    // Initialize microsoft teams tab library
+    microsoftTeams.initialize();
+    microsoftTeams.authentication.notifySuccess("{{token}}")
+  </script>
 
-if({{success}} == true){
-  microsoftTeams.authentication.notifySuccess("{{token}}")
-}else {
-  $('#heading').text('Failed');
-  $('#subheading').text('You are not authorized to use this App.');
-  microsoftTeams.authentication.notifyFailure();
+{{else}}
 
-}
-</script>
+  <div>
+    <h1 id="heading">Failed</h1>
+    <p id="subheading">You are not authorized to use this App.</p>
+  </div>
+
+  <script type="text/javascript">
+    microsoftTeams.initialize();
+    microsoftTeams.authentication.notifyFailure();
+  </script>
+
+{{/success}}

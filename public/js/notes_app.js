@@ -15,6 +15,8 @@ app.controller('notesController', ['$scope', '$http', '$sce', function($scope, $
       microsoftTeams.shareDeepLink({ subEntityId: note_id, subEntityLabel: 'Note'})
 
     }
+
+
     $scope.loadNotes = function(notes_url) {
 
 
@@ -40,8 +42,8 @@ app.controller('notesController', ['$scope', '$http', '$sce', function($scope, $
 
       microsoftTeams.initialize();
       microsoftTeams.getContext(function(context) {
-        console.log('CONTEXT', context);
         $scope.context = context;
+
         if (context.subEntityId) {
           $scope.highlighted_item = context.subEntityId;
         }
