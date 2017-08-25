@@ -14,7 +14,7 @@ module.exports = function(controller) {
         text: matches[1].trim(),
         user: convo.context.user,
         channel: convo.context.channel,
-        author: convo.source_message.raw_message.user_profile.name,
+        author: convo.source_message.original_message.user_profile.name,
         id: controller.guid(),
       }
 
