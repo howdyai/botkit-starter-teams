@@ -7,6 +7,7 @@
     "start": "node bot.js"
   },
   "dependencies": {
+    "async": "^2.5.0",
     "body-parser": "^1.15.2",
     "botkit": "git+ssh://git@git.botkit.ai:benbrown/teamsbot.git#teams",
     "botkit-storage-mongo": "^1.0.6",
