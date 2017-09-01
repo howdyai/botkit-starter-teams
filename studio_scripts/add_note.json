@@ -1,0 +1,135 @@
+[
+    {
+        "command": "add note",
+        "description": "allow a user to add a note",
+        "triggers": [
+            {
+                "pattern": "note\\:(.*)",
+                "type": "regexp",
+                "id": 107
+            },
+            {
+                "type": "string",
+                "pattern": "add note"
+            }
+        ],
+        "variables": [
+            {
+                "name": "note_text",
+                "type": "string",
+                "id": 324
+            },
+            {
+                "name": "question_1",
+                "type": "string"
+            },
+            {
+                "name": "question_2",
+                "type": "string"
+            },
+            {
+                "name": "question_3",
+                "type": "string"
+            }
+        ],
+        "script": [
+            {
+                "topic": "default",
+                "script": [
+                    {
+                        "text": [
+                            "I'm ready! Send me your notes, then say DONE (or just wait a few seconds)"
+                        ],
+                        "collect": {
+                            "key": "note_text",
+                            "options": [
+                                {
+                                    "default": true,
+                                    "pattern": "default",
+                                    "action": "wait"
+                                },
+                                {
+                                    "pattern": "done",
+                                    "type": "string",
+                                    "action": "next"
+                                }
+                            ],
+                            "multiple": true
+                        }
+                    },
+                    {
+                        "action": "note_created"
+                    }
+                ]
+            },
+            {
+                "topic": "on_timeout",
+                "script": [
+                    {
+                        "text": [
+                            "We can pick this up later. Just say \"add note\" to start again."
+                        ]
+                    },
+                    {
+                        "action": "timeout"
+                    }
+                ]
+            },
+            {
+                "topic": "note_created",
+                "script": [
+                    {
+                        "text": [
+                            "OK! I created this note:"
+                        ],
+                        "platforms": {
+                            "teams": {
+                                "attachments": [
+                                    {
+                                        "type": "thumbnail",
+                                        "title": "Note added",
+                                        "name": "New attachment",
+                                        "buttons": [],
+                                        "images": [],
+                                        "text": "{{{vars.note.text}}}"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": "complete"
+                    }
+                ]
+            },
+            {
+                "topic": "error",
+                "script": [
+                    {
+                        "text": [
+                            "Oops! An error occurred."
+                        ],
+                        "platforms": {
+                            "teams": {
+                                "attachments": [
+                                    {
+                                        "type": "hero",
+                                        "title": "Error:",
+                                        "name": "New attachment",
+                                        "buttons": [],
+                                        "images": [],
+                                        "text": "{{vars.error}}"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": "stop"
+                    }
+                ]
+            }
+        ],
+        "modified": "Fri Sep 01 2017 20:20:16 GMT+0000 (UTC)"
+    }
+]
