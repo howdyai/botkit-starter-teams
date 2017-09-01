@@ -18,7 +18,7 @@ Our goal with Botkit is to make bot building easy, fun, and accessible to anyone
 	* Webhook endpoints for communicating with platforms
 * Sample skill modules that demonstrate various features of Botkit
 * A sample "note taker" app that weaves together bot features, as well as:
-  * A [Botkit Studio script to import](blob/master/studio_scripts/add_note.json)
+  * A [Botkit Studio script to import](studio_scripts/add_note.json)
   * A sample [static tab](https://msdn.microsoft.com/en-us/microsoft-teams/tabs)
   * A sample [configurable tab](https://msdn.microsoft.com/en-us/microsoft-teams/tabs) (along with sample settings pages)
   * A sample skill for responding to [Compose Extension](https://msdn.microsoft.com/en-us/microsoft-teams/composeextensions)queries
