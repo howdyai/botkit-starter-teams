@@ -38,7 +38,6 @@ module.exports = function(controller) {
     var normalizedPath = require("path").join(__dirname, "routes");
     require("fs").readdirSync(normalizedPath).forEach(function(file) {
       require("./routes/" + file)(webserver, controller);
-      console.log(file);
     });
 
     controller.webserver = webserver;
