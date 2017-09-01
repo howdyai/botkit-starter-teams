@@ -5,8 +5,7 @@
         "triggers": [
             {
                 "pattern": "note\\:(.*)",
-                "type": "regexp",
-                "id": 107
+                "type": "regexp"
             },
             {
                 "type": "string",
@@ -16,19 +15,6 @@
         "variables": [
             {
                 "name": "note_text",
-                "type": "string",
-                "id": 324
-            },
-            {
-                "name": "question_1",
-                "type": "string"
-            },
-            {
-                "name": "question_2",
-                "type": "string"
-            },
-            {
-                "name": "question_3",
                 "type": "string"
             }
         ],
@@ -129,7 +115,6 @@
                     }
                 ]
             }
-        ],
-        "modified": "Fri Sep 01 2017 20:20:16 GMT+0000 (UTC)"
+        ]
     }
 ]
