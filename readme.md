@@ -1,6 +1,6 @@
 # Botkit Starter Kit for Microsoft Teams Bots
 
-This repo contains everything you need to get started building a [Microsoft Teams](https://products.office.com/en-us/microsoft-teams/group-chat-software) bot with [Botkit](https://botkit.ai) and [Botkit Studio](https://botkit.ai).
+This repo contains everything you need to get started building a [Microsoft Teams](https://products.office.com/en-us/microsoft-teams/group-chat-software) bot with [Botkit](https://botkit.ai)
 
 Botkit is designed to ease the process of designing and running useful, creative bots that live inside messaging platforms. Bots are applications that can send and receive messages, and in many cases, appear alongside their human counterparts as users.
 
@@ -8,29 +8,19 @@ Some bots talk like people, others silently work in the background, while others
 
 Our goal with Botkit is to make bot building easy, fun, and accessible to anyone with the desire to create a future filled with talking machines!
 
-This document covers the Microsoft Teams specific implementation details only. [Start here](https://github.com/howdyai/botkit/blob/master/docs/readme.md#developing-with-botkit) if you want to learn about how to develop with Botkit.
-
-#### Table of Contents
-* [What's Included ](#getting-started)
-* [Getting Started](#getting-started)
-* [Extend this starter kit]()
-* [Customizing Storage]()
-* [Developer and Support community]()
-* [About Botkit]()
-* [Customizing Storage]()
-
-
-
 ### What's Included
+
 * [Botkit core](https://github.com/howdyai/botkit/blob/master/docs/readme.md#developing-with-botkit) - a complete programming system for building conversational software
+* [Botkit for Microsoft Teams](https://github.com/howdyai/botkit/blob/master/docs/readme-teams.md) - extensions to Botkit to take advantage of Teams-specific features and APIs
 * [Botkit Studio API](https://github.com/howdyai/botkit/blob/master/docs/readme-studio.md#function-index) - additional APIs that extend Botkit with powerful tools and APIs
 * [Pre-configured Express.js webserver](https://expressjs.com/) including:
-    * A customizable "Install my Bot" homepage
+  * A customizable "Install my Bot" homepage
 	* Webhook endpoints for communicating with platforms
 * Sample skill modules that demonstrate various features of Botkit
-* A sample [static tab](https://msdn.microsoft.com/en-us/microsoft-teams/tabs)
-* A sample [configurable tab](https://msdn.microsoft.com/en-us/microsoft-teams/tabs) (along with sample settings pages)
-* A sample skill for responding to [Compose Extension](https://msdn.microsoft.com/en-us/microsoft-teams/composeextensions)queries
+* A sample "note taker" app that weaves together bot features, as well as:
+  * A sample [static tab](https://msdn.microsoft.com/en-us/microsoft-teams/tabs)
+  * A sample [configurable tab](https://msdn.microsoft.com/en-us/microsoft-teams/tabs) (along with sample settings pages)
+  * A sample skill for responding to [Compose Extension](https://msdn.microsoft.com/en-us/microsoft-teams/composeextensions)queries
 
 ## Getting Started
 
@@ -43,7 +33,7 @@ While Botkit Studio is *not required* to build a bot using Botkit, we highly rec
 
 ### Setup Botkit
 
-[Remix this project on Glitch](https://glitch.com/edit/#!/import/github/howdyai/botkit-starter-teams)
+[Remix this project on Glitch](https://glitch.com/~botkit-teams)
 
 [Deploy to Heroku](https://heroku.com/deploy?template=https://github.com/howdyai/botkit-starter-teams/master)
 
@@ -58,10 +48,12 @@ cd botkit-starter-teams
 npm install
 ```
 
-#### Set up your teams Application
-Once you have setup your Botkit development enviroment, the next thing you will want to do is set up a new teams application via the [teams developer portal](https://api.teams.com/). This is a multi-step process, but only takes a few minutes.
+#### Set up your Bot Framework profile and sideload your bot
 
-We have created a detailed step-by-step guide to setting up your bot for Teams in this [Teams provisioning guide]().
+To get everything up and running, you'll have to create an account and bot profile inside Microsoft's [Bot Framework](http://dev.botframework.com) tool.
+You also need to create and "sideload" a application package. This is a multi-step process, but only takes a few minutes.
+
+We have created a detailed step-by-step guide to setting up your bot for Teams in this [provisioning guide](https://github.com/howdyai/botkit/blob/master/docs/provisioning/teams.md).
 
 Now comes the fun part of [making your bot!](https://github.com/howdyai/botkit/blob/master/docs/readme.md#basic-usage)
 
