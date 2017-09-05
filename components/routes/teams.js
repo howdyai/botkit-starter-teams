@@ -14,7 +14,7 @@ module.exports = function(webserver, controller) {
   webserver.get('/', function(req, res) {
     // console.log('process.env: ', process.env);
     res.render('index', {
-      bot_client_id: process.env.client_id,
+      bot_client_id: process.env.clientId,
       layout: 'layouts/default'
     });
   });
