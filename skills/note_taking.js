@@ -28,7 +28,7 @@ module.exports = function(controller) {
         user: convo.context.user,
         channel: convo.context.channel,
         author: convo.source_message.original_message.user_profile.name,
-        id: controller.guid(),
+        id: guid(),
       }
 
       if (note.text) {
@@ -47,17 +47,17 @@ module.exports = function(controller) {
 
   controller.studio.validate('add note', 'note_text', function(convo, next) {
 
-       var note = {
-        text: convo.extractResponse('note_text').trim(),
-        user: convo.context.user,
-        channel: convo.context.channel,
-        author: convo.source_message.original_message.user_profile.name,
-        id: controller.guid(),
-      }
+    var note = {
+      text: convo.extractResponse('note_text').trim(),
+      user: convo.context.user,
+      channel: convo.context.channel,
+      author: convo.source_message.original_message.user_profile.name,
+      id: guid(),
+    }
 
-      if (note.text) {
-        convo.setVar('note', note);
-      }
+    if (note.text) {
+      convo.setVar('note', note);
+    }
 
     next();
 
@@ -87,35 +87,45 @@ module.exports = function(controller) {
   });
 
 
+  /* Generate a random GUID */
+  function guid() {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+      s4() + '-' + s4() + s4() + s4();
+  }
 
   function addNoteForUser(note, context) {
 
     return new Promise(function(resolve, reject) {
-        if (!context.original_message.user_data.notes) {
-          context.original_message.user_data.notes = [];
+      if (!context.original_message.user_data.notes) {
+        context.original_message.user_data.notes = [];
+      }
+
+      // format line breaks for markdown
+      note.text = note.text.replace(/\n/gim, '\n\n');
+      note.time = new Date();
+
+      context.original_message.user_data.notes.push(note);
+      context.original_message.channel_data.notes.push(note);
+
+      controller.storage.channels.save(context.original_message.channel_data, function(err) {
+        if (err) {
+          reject(err);
+        } else {
+          controller.storage.users.save(context.original_message.user_data, function(err) {
+            if (err) {
+              reject(err);
+            } else {
+              resolve();
+            }
+          });
         }
-
-        // format line breaks for markdown
-        note.text = note.text.replace(/\n/gim,'\n\n');
-        note.time = new Date();
-
-        context.original_message.user_data.notes.push(note);
-        context.original_message.channel_data.notes.push(note);
-
-        controller.storage.channels.save(context.original_message.channel_data, function(err) {
-          if (err) {
-            reject(err);
-          } else {
-            controller.storage.users.save(context.original_message.user_data, function(err) {
-                if (err) {
-                  reject(err);
-                } else {
-                  resolve();
-                }
-            });
-          }
-        });
       });
+    });
 
   }
 

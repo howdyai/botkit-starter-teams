@@ -8,16 +8,16 @@
     channel.
 
 */
-module.exports = function(controller){
+module.exports = function(controller) {
 
-  controller.on('composeExtension', function(bot, message){
+  controller.on('composeExtension', function(bot, message) {
 
     var results = [];
     if (message.user_data) {
       for (var n = 0; n < message.user_data.notes.length; n++) {
 
         var note = message.user_data.notes[n];
-        var pattern = new RegExp('\\b' + message.text + '\\b','i');
+        var pattern = new RegExp('\\b' + message.text + '\\b', 'i');
         if (note.text.match(pattern)) {
 
           results.push(bot.createHero(note.text))

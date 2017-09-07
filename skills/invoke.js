@@ -10,6 +10,4 @@ module.exports = function(controller) {
 
   });
 
-
-
 }
