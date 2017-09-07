@@ -1,0 +1,50 @@
+[
+    {
+        "command": "welcome_new_user",
+        "description": "[starter kit sample skill] Say hello as new users join the team",
+        "triggers": [
+        ],
+        "variables": [
+            {
+                "name": "question_1",
+                "type": "string"
+            },
+            {
+                "name": "question_2",
+                "type": "string"
+            },
+            {
+                "name": "question_3",
+                "type": "string"
+            }
+        ],
+        "script": [
+            {
+                "topic": "default",
+                "script": [
+                    {
+                        "text": [
+                            "Welcome <@{{origin.user}}>! Nice to meet you."
+                        ]
+                    },
+                    {
+                        "action": "complete"
+                    }
+                ]
+            },
+            {
+                "topic": "on_timeout",
+                "script": [
+                    {
+                        "text": [
+                            "Looks like you got distracted. We can continue later."
+                        ]
+                    },
+                    {
+                        "action": "timeout"
+                    }
+                ]
+            }
+        ]
+    }
+]

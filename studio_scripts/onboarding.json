@@ -1,0 +1,36 @@
+[
+    {
+        "command": "onboarding",
+        "description": "[starter kit sample skill] Script for post-install message sent to the team",
+        "triggers": [],
+        "variables": [],
+        "script": [
+            {
+                "topic": "default",
+                "script": [
+                    {
+                        "text": [
+                            "Hello boss! I am your new bot, fresh out of the box and ready for you to customize."
+                        ]
+                    },
+                    {
+                        "action": "complete"
+                    }
+                ]
+            },
+            {
+                "topic": "timeout",
+                "script": [
+                    {
+                        "text": [
+                            "Looks like you got distracted. We can continue later."
+                        ]
+                    },
+                    {
+                        "action": "timeout"
+                    }
+                ]
+            }
+        ]
+    }
+]

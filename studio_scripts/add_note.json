@@ -1,7 +1,7 @@
 [
     {
         "command": "add note",
-        "description": "allow a user to add a note",
+        "description": "[starter kit sample skill] allow a user to add a note",
         "triggers": [
             {
                 "pattern": "note\\:(.*)",
