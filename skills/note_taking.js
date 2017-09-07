@@ -1,6 +1,19 @@
+/*
+    This is a sample Botkit Studio plugin module that implements
+    a simple note taking behavior.
+
+    Users can say "add note" or "note: my note" and create a
+    sharable note inside Teams.  These notes will appear on the
+    included sample tab application, and be accessible via the
+    included `composeExtension.js` handler
+
+    This skill requires a script called 'add note' to be present
+    in Botkit Studio. An importable version of this script is
+    present in the studio_scripts/ folder of this project!
+
+*/
+
 module.exports = function(controller) {
-
-
 
   controller.studio.before('add note', function(convo, next) {
 
