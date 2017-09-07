@@ -31,8 +31,8 @@ var debug = require('debug')('botkit:main');
 
 // teamsDevBot // remember to get this out of here
 var bot_options = {
-    client_id: process.env.client_id || 'c9e340f8-cd73-4a5f-9b72-c95d0db12a28',
-    client_secret: process.env.client_secret || 'yEL92vtxUtFdBgbpizmoP7o',
+    clientId: process.env.clientId,
+    clientSecret: process.env.clientSecret,
     studio_token: process.env.studio_token,
     studio_command_uri: process.env.studio_command_uri,
 };

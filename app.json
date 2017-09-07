@@ -1,8 +1,8 @@
 {
   "name": "Botkit Starter Kit",
-  "description": "A starting point for building custom Slack applications",
+  "description": "A starting point for building custom Microsoft Teams applications",
   "repository": "https://github.com/howdyai/botkit-starter-slack",
-  "keywords": ["node", "bots", "slack","botkit"],
+  "keywords": ["node", "bots", "microsoft teams","botkit"],
   "website": "https://studio.botkit.ai/",
   "success_url":"/",
   "addons":[
