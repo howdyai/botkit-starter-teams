@@ -1,0 +1,58 @@
+$botkit_purple: #a795ef;
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+footer {
+    text-align: center;
+}
+
+.hero {
+    text-align: center;
+    padding: 2rem;
+
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+a {
+    color: $botkit_purple;
+}
+
+a.button {
+    border: 2px solid $botkit_purple;
+    font-weight: bold;
+    font-size: 4rem;
+    margin: 3rem 0;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    // color: #FFF;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+    background-color: #FFF;
+    transition: box-shadow 0.1s linear;
+
+    &:hover {
+        // background-color: rgba($botkit_purple, 0.1);
+        box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+    }
+}
