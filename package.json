@@ -9,7 +9,7 @@
   "dependencies": {
     "async": "^2.5.0",
     "body-parser": "^1.15.2",
-    "botkit": "https://github.com/howdyai/botkit#dev/teams",
+    "botkit": "^0.6",
     "botkit-storage-mongo": "^1.0.6",
     "clone": "^2.1.1",
     "cookie-parser": "^1.4.3",
