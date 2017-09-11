@@ -1,8 +1,6 @@
 # Botkit Starter Kit for Microsoft Teams Bots
 
-# NOTE: This is a developer preview release of this software, using a pre-release version of Botkit!
-
-This repo contains everything you need to get started building a [Microsoft Teams](https://products.office.com/en-us/microsoft-teams/group-chat-software) bot with [Botkit](https://botkit.ai)
+This repo contains everything you need to get started building a [Microsoft Teams](https://products.office.com/en-us/microsoft-teams/group-chat-software) bot with [Botkit](https://botkit.ai/teams)
 
 Botkit is designed to ease the process of designing and running useful, creative bots that live inside messaging platforms. Bots are applications that can send and receive messages, and in many cases, appear alongside their human counterparts as users.
 
