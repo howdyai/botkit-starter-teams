@@ -56,9 +56,11 @@ var webserver = require(__dirname + '/components/express_webserver.js')(controll
 // Load in some helpers that make running Botkit on Glitch.com better
 require(__dirname + '/components/plugin_glitch.js')(controller);
 
+// enable advanced botkit studio metrics
+require('botkit-studio-metrics')(controller);
+
 // Start the bot brain in motion!!
 controller.startTicking();
-
 
 var normalizedPath = require("path").join(__dirname, "skills");
 require("fs").readdirSync(normalizedPath).forEach(function(file) {

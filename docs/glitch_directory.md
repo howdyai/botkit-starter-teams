@@ -11,7 +11,7 @@ Our goal with Botkit is to make bot building easy, fun, and accessible to anyone
 If you are looking to create a bot on other platforms using Glitch, check out the [Botkit project page](https://glitch.com/botkit).
 
 ## Getting Started
-There are a myriad of methods you can use to set up an application, but we feel this is the most flexible path you can use to setup your bot for [Microsoft Teams](https://github.com/howdyai/botkit/blob/master/docs/readme-teans.md):
+There are a myriad of methods you can use to set up an application, but we feel this is the most flexible path you can use to setup your bot for [Microsoft Teams](https://github.com/howdyai/botkit/blob/master/docs/readme-teams.md):
 
 ### What's Included
 
