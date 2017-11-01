@@ -1,11 +1,25 @@
 module.exports = function(webserver, controller) {
 
   webserver.post('/teams/receive', function(req, res) {
+
     var message = req.body;
 
-    var bot = controller.spawn({
-      serviceUrl: message.serviceUrl,
-    });
+    var options = {
+        serviceUrl: message.serviceUrl,
+    }
+
+    // add team id to config
+    if (message.channelData && message.channelData.team && message.channelData.team.id) {
+        options.team = message.channelData.team.id;
+    }
+
+    var bot = controller.spawn(options);
+
+    // set bot's identity based on the recipient field
+    // this makes bot.identity.name and bot.identity.id available
+    if (message.recipient) {
+      bot.identity = message.recipient;
+    }
 
     controller.ingest(bot, message, res);
 
