@@ -23,15 +23,6 @@ Our goal with Botkit is to make bot building easy, fun, and accessible to anyone
   * A sample [configurable tab](https://msdn.microsoft.com/en-us/microsoft-teams/tabs) (along with sample settings pages)
   * A sample skill for responding to [Compose Extension](https://msdn.microsoft.com/en-us/microsoft-teams/composeextensions)queries
 
-## Getting Started
-
-There are a myriad of methods you can use to set up an application on teams, here are some of your options:
-
-### Use Botkit Studio
-[Botkit Studio](https://studio.botkit.ai/signup?code=teamsglitch) is a set of tools that adds capabilities to the open source Botkit library by offering hosted GUI interfaces for script management and action trigger definition.
-
-While Botkit Studio is *not required* to build a bot using Botkit, we highly recommend it as your bot will be easier to manage, customize and extend.
-
 ### Setup Botkit
 
 [Remix this project on Glitch](https://glitch.com/~botkit-teams)
