@@ -10,15 +10,13 @@ Our goal with Botkit is to make bot building easy, fun, and accessible to anyone
 
 ### What's Included
 
-* [Botkit core](https://github.com/howdyai/botkit/blob/master/docs/readme.md#developing-with-botkit) - a complete programming system for building conversational software
-* [Botkit for Microsoft Teams](https://github.com/howdyai/botkit/blob/master/docs/readme-teams.md) - extensions to Botkit to take advantage of Teams-specific features and APIs
-* [Botkit Studio API](https://github.com/howdyai/botkit/blob/master/docs/readme-studio.md#function-index) - additional APIs that extend Botkit with powerful tools and APIs
+* [Botkit core](https://botkit.ai/docs/core.html) - a complete programming system for building conversational software
+* [Botkit for Microsoft Teams](https://botkit.ai/docs/readme-teams.html) - extensions to Botkit to take advantage of Teams-specific features and APIs
 * [Pre-configured Express.js webserver](https://expressjs.com/) including:
   * A customizable "Install my Bot" homepage
 	* Webhook endpoints for communicating with platforms
 * Sample skill modules that demonstrate various features of Botkit
 * A sample "note taker" app that weaves together bot features, as well as:
-  * A [Botkit Studio script to import](studio_scripts/add_note.json)
   * A sample [static tab](https://msdn.microsoft.com/en-us/microsoft-teams/tabs)
   * A sample [configurable tab](https://msdn.microsoft.com/en-us/microsoft-teams/tabs) (along with sample settings pages)
   * A sample skill for responding to [Compose Extension](https://msdn.microsoft.com/en-us/microsoft-teams/composeextensions)queries
@@ -45,9 +43,9 @@ npm install
 To get everything up and running, you'll have to create an account and bot profile inside Microsoft's [Bot Framework](http://dev.botframework.com) tool.
 You also need to create and "sideload" a application package. This is a multi-step process, but only takes a few minutes.
 
-We have created a detailed step-by-step guide to setting up your bot for Teams in this [provisioning guide](https://github.com/howdyai/botkit/blob/master/docs/provisioning/teams.md).
+We have created a detailed step-by-step guide to setting up your bot for Teams in this [provisioning guide](https://botkit.ai/docs/provisioning/teams.html).
 
-Now comes the fun part of [making your bot!](https://github.com/howdyai/botkit/blob/master/docs/readme.md#basic-usage)
+Now comes the fun part of [making your bot!](https://botkit.ai/docs/)
 
 ## Extend This Starter kit
 
@@ -68,19 +66,17 @@ module.exports = function(controller) {
 }
 ```
 
-Continue your journey to becoming a champion botmaster by [reading the Botkit Studio SDK documentation here.](https://github.com/howdyai/botkit/blob/master/docs/readme-studio.md)
-
 
 ## Customize Storage
 By default, the starter kit uses a simple file-system based storage mechanism to record information about the teams and users that interact with the bot. While this is fine for development, or use by a single team, most developers will want to customize the code to use a real database system.
 
-There are [Botkit plugins for all the major database systems](https://github.com/howdyai/botkit/blob/master/docs/readme-middlewares.md#storage-modules) which can be enabled with just a few lines of code.
+There are [Botkit plugins for all the major database systems](https://botkit.ai/docs/readme-middlewares.html#storage-modules) which can be enabled with just a few lines of code.
 
 We have enabled our [Mongo middleware]() for starters in this project. To use your own Mongo database, just fill out `MONGO_URI` in your `.env` file with the appropriate information. For tips on reading and writing to storage, [check out these medium posts](https://botkit.groovehq.com/knowledge_base/categories/build-a-bot)
 
 # Developer & Support Community
 
-You can find full documentation for Botkit on our [GitHub page](https://github.com/howdyai/botkit/blob/master/readme.md). Botkit Studio users can access the [Botkit Studio Knowledge Base](https://botkit.groovehq.com/help_center) for help in managing their account.
+You can find full documentation for Botkit on our [Docs site](https://botkit.ai/docs/).
 
 ###  Need more help?
 
