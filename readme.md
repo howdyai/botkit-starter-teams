@@ -1,3 +1,15 @@
+# This repo is deprecated!
+
+To get a fresh Botkit starter kit, use the Yeoman generator or [remix a starter kit on Glitch](https://glitch.com/botkit)
+
+```
+npm install -g yo generator-botkit
+yo botkit
+```
+
+
+
+
 # Botkit Starter Kit for Microsoft Teams Bots
 
 This repo contains everything you need to get started building a [Microsoft Teams](https://products.office.com/en-us/microsoft-teams/group-chat-software) bot with [Botkit](https://botkit.ai/teams)
